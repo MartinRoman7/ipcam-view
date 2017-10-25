@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">IPCam Demo</string>
+    <string name="app_name">Home Security</string>
 
     <string name="activity_ipcam_default">Default</string>
     <string name="activity_ipcam_two">Two Camera</string>
-    <string name="activity_ipcam_snapshot">Snapshot</string>
+    <string name="activity_ipcam_snapshot">Cámara 1</string>
     <string name="activity_ipcam_native">Native</string>
     <string name="activity_ipcam_custom_appearance">Custom appearance</string>
     <string name="activity_settings">Settings</string>

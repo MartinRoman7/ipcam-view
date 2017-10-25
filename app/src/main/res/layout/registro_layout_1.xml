@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3">
+    <ImageView
+        android:id="@+id/imagen_registro_1"
+        android:layout_width="290dp"
+        android:layout_height="290dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/registro"/>
+
+
+    <EditText
+        android:id="@+id/Usuario_registro_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imagen_registro_1"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Ingrese usuario" />
+
+    <EditText
+        android:id="@+id/password_registro_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Usuario_registro_1"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:textSize="16dp"
+        android:hint="Ingrese contraseña"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/passworda_registro_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password_registro_1"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:textSize="16dp"
+        android:hint="Ingrese contraseña nuevamente"
+        android:inputType="textPassword" />
+
+
+    <Button
+        android:id="@+id/cancelar_1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_below="@+id/passworda_registro_1"
+        android:layout_marginTop="20dp"
+        android:background="#3E87A9"
+        android:textColor="#FFFFFF"
+        android:text="Cancelar" />
+
+    <Button
+        android:id="@+id/aceptar_1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="40dp"
+        android:layout_below="@+id/passworda_registro_1"
+        android:layout_marginTop="20dp"
+        android:background="#3E87A9"
+        android:textColor="#FFFFFF"
+        android:text="Aceptar" />
+
+</RelativeLayout>
+
