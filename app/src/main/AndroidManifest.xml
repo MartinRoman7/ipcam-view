@@ -18,10 +18,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity"></activity>
+
         <activity
             android:name=".IpCamSnapshotActivity"
             android:label="@string/activity_ipcam_snapshot"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.github.niqdev.ipcam.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".IpCamSnapshotActivity_2"
+            android:label="@string/activity_ipcam_snapshot_2"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -4,6 +4,7 @@
     <string name="activity_ipcam_default">Default</string>
     <string name="activity_ipcam_two">Two Camera</string>
     <string name="activity_ipcam_snapshot">Cámara 1</string>
+    <string name="activity_ipcam_snapshot_2">Cámara 2</string>
     <string name="activity_ipcam_native">Native</string>
     <string name="activity_ipcam_custom_appearance">Custom appearance</string>
     <string name="activity_settings">Settings</string>

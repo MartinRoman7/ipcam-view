@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.buttonCamera1)
     Button buttonSnapshot;
 
+    @BindView(R.id.buttonCamera2)
+    Button buttonSnapshot_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.buttonCamera1)
     public void onClickSnapshot() {
         startActivity(new Intent(this, IpCamSnapshotActivity.class));
+    }
+
+    @OnClick(R.id.buttonCamera2)
+    public void onClickSnapshot_2() {
+        startActivity(new Intent(this, IpCamSnapshotActivity_2.class));
     }
 
 

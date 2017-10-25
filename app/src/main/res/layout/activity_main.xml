@@ -22,6 +22,15 @@
                     android:textColor="#FFFFFF"
                     android:text="Cámara 1" />
 
+                <Button
+                    android:id="@+id/buttonCamera2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#009688"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="88dp"
+                    android:text="Cámara 2" />
+
 
                     <TextView
                         android:id="@+id/tx_username1"
