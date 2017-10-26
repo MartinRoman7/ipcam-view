@@ -15,22 +15,41 @@
                 android:layout_height="match_parent"/>
 
                 <Button
-                    android:id="@+id/buttonCamera1"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/buttonLlamada"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="#009688"
                     android:textColor="#FFFFFF"
-                    android:text="Cámara 1" />
+                    android:text="Seguridad" />
+
+                <Button
+                    android:id="@+id/buttonCamera1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="#009688"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="100dp"
+                    android:text="Cámara" />
 
                 <Button
                     android:id="@+id/buttonCamera2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="#009688"
                     android:textColor="#FFFFFF"
-                    android:layout_marginStart="88dp"
-                    android:text="Cámara 2" />
+                    android:layout_marginStart="200dp"
+                    android:text="llamada" />
 
+
+
+                <Button
+                    android:id="@+id/buttonHelp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="#009688"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="300dp"
+                    android:text="Ayuda" />
 
                     <TextView
                         android:id="@+id/tx_username1"

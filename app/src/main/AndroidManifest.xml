@@ -39,6 +39,17 @@
                 android:value="com.github.niqdev.ipcam.MainActivity" />
         </activity>
 
+        <activity
+            android:name=".LlamadaActivity"
+            android:label="@string/activity_llamada"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.github.niqdev.ipcam.MainActivity" />
+
+        </activity>
+
     </application>
+
 
 </manifest>
