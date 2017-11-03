@@ -20,6 +20,7 @@ import android.widget.EditText;
 import com.github.niqdev.ipcam.LoginActivity;
 import com.github.niqdev.ipcam.MainActivity;
 import com.github.niqdev.ipcam.R;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 
 /**
@@ -82,9 +83,13 @@ public class LoginFragment extends Fragment {
 
 
     private void iniciarSesion(){
+        final String TAG = "MyFirebaseIIDService";
+
         String Usuario=usuario.getText().toString();
         String Password=password.getText().toString();
 
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "Refreshed token: " + refreshedToken);
 
         if(! (Usuario.equals("") && Password.equals(""))) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());

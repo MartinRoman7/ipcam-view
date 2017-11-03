@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "883926257583",
+    "firebase_url": "https://appseguridad-f65cc.firebaseio.com",
+    "project_id": "appseguridad-f65cc",
+    "storage_bucket": "appseguridad-f65cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883926257583:android:a226446eec0b5c10",
+        "android_client_info": {
+          "package_name": "com.github.niqdev.ipcam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883926257583-kcnqvqqkar2omo1um7bkvekl5nvvsoe9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.niqdev.ipcam",
+            "certificate_hash": "102e93a0fda06ecf9b78dc002e6e67e3c524ac59"
+          }
+        },
+        {
+          "client_id": "883926257583-d6oq1mjnpao27o8nebsf7kruchh5sns1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLr3WqcVCmyR33NZ1stgf6iZz4X2fPHJc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883926257583-d6oq1mjnpao27o8nebsf7kruchh5sns1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
