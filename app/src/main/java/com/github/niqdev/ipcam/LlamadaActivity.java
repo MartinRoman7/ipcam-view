@@ -1,8 +1,10 @@
 package com.github.niqdev.ipcam;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,6 +31,8 @@ import java.net.URL;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
+
 public class LlamadaActivity extends AppCompatActivity{
 
     private static final int TIMEOUT = 5;
@@ -38,51 +42,82 @@ public class LlamadaActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llamada);
 
+        ImageButton cerraduraU = (ImageButton) findViewById(R.id.cerraduraU_btn);
+        ImageButton cerraduraL = (ImageButton) findViewById(R.id.cerraduraL_btn);
+
+        ImageButton openDoor = (ImageButton) findViewById(R.id.opendoor_btn);
+        ImageButton closeDoor = (ImageButton) findViewById(R.id.closedoor_btn);
 
 
 
+        SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = prefs.edit();
 
-        ImageButton cerradura = (ImageButton) findViewById(R.id.cerradura_btn);
-        cerradura.setOnClickListener(new View.OnClickListener() {
+        cerraduraU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-               /* URL url;
-                HttpURLConnection urlConnection = null;
-                try {
-                    url = new URL("http://192.168.1.70:1880/activation/true");
-
-                    urlConnection = (HttpURLConnection) url.openConnection();
-
-
-
-                    String codigoRespuesta = Integer.toString(urlConnection.getResponseCode());
-
-                    if(codigoRespuesta.equals("200")){
-
-                        finish();
-                        System.exit(0);
-
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    if (urlConnection != null) {
-                        urlConnection.disconnect();
-                    }
-                }*/
-
                 Mjpeg.newInstance()
-                        .open("http://192.168.1.70:1880/activation/true", TIMEOUT).subscribe();
+                        .open("http://192.168.1.125:1880/activation/false", TIMEOUT).subscribe();
+
+                cerraduraL.setVisibility(View.VISIBLE);
+                cerraduraU.setVisibility(View.INVISIBLE);
+
+
+                closeDoor.setVisibility(View.VISIBLE);
+                openDoor.setVisibility(View.INVISIBLE);
 
             }
         });
 
+        cerraduraL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Mjpeg.newInstance()
+                        .open("http://192.168.1.125:1880/activation/true", TIMEOUT).subscribe();
+
+                cerraduraL.setVisibility(View.INVISIBLE);
+                cerraduraU.setVisibility(View.VISIBLE);
+
+
+
+                closeDoor.setVisibility(View.INVISIBLE);
+                openDoor.setVisibility(View.INVISIBLE);
+
+
+
+            }
+        });
+
+        String string = prefs.getString("flag","");
+
+        closeDoor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Mjpeg.newInstance()
+                        .open("http://192.168.1.125:1880/cerradura/1", TIMEOUT).subscribe();
+
+                closeDoor.setVisibility(View.INVISIBLE);
+                openDoor.setVisibility(View.VISIBLE);
+
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Do something after 5s = 5000ms
+                        openDoor.setVisibility(View.INVISIBLE);
+                        closeDoor.setVisibility(View.VISIBLE);
+                    }
+                }, 3000);
+
+            }
+        });
+
+
     }
 
 
 
-    }
-
+}

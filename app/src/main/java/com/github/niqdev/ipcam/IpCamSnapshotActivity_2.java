@@ -20,7 +20,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class IpCamSnapshotActivity_2 extends AppCompatActivity implements OnFrameCapturedListener {
-
     private static final int TIMEOUT = 5;
 
     private Bitmap lastPreview = null;
@@ -41,8 +40,8 @@ public class IpCamSnapshotActivity_2 extends AppCompatActivity implements OnFram
 
     private String getPreference(String key) {
         return PreferenceManager
-            .getDefaultSharedPreferences(this)
-            .getString(key, "");
+                .getDefaultSharedPreferences(this)
+                .getString(key, "");
     }
 
     private DisplayMode calculateDisplayMode() {
@@ -53,17 +52,17 @@ public class IpCamSnapshotActivity_2 extends AppCompatActivity implements OnFram
 
     private void loadIpCam() {
         Mjpeg.newInstance()
-            .open("http://192.168.1.70/camera2", TIMEOUT)
-            .subscribe(
-                inputStream -> {
-                    mjpegView.setSource(inputStream);
-                    mjpegView.setDisplayMode(calculateDisplayMode());
-                    mjpegView.showFps(true);
-                },
-                throwable -> {
-                    Log.e(getClass().getSimpleName(), "mjpeg error", throwable);
-                    Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
-                });
+                .open("http://192.168.1.125/camera2", TIMEOUT)
+                .subscribe(
+                        inputStream -> {
+                            mjpegView.setSource(inputStream);
+                            mjpegView.setDisplayMode(calculateDisplayMode());
+                            mjpegView.showFps(true);
+                        },
+                        throwable -> {
+                            Log.e(getClass().getSimpleName(), "mjpeg error", throwable);
+                            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
+                        });
     }
 
     @Override
