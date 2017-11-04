@@ -99,5 +99,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.contact_btn)
     public void onClickContact() { startActivity(new Intent(this, Contacts.class)); }
 
+    @OnClick(R.id.buttonHelp)
+    public void onClickHelp() { startActivity(new Intent(this, AyudaActivity.class)); }
 
 }
