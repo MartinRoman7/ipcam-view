@@ -6,6 +6,7 @@
     <string name="activity_ipcam_snapshot">Cámara Interna</string>
     <string name="activity_ipcam_snapshot_2">Video Llamada</string>
     <string name="activity_llamada">Sistema</string>
+    <string name="activity_contact">Contactos</string>
     <string name="activity_ipcam_native">Native</string>
     <string name="activity_ipcam_custom_appearance">Custom appearance</string>
     <string name="activity_settings">Settings</string>

@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.annotation.BinderThread;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.text.TextUtils;
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.buttonCamera2)
     Button buttonSnapshot_2;
+
+    @BindView(R.id.contact_btn)
+    ImageButton buttonContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
     public void onClickLlamada() {
         startActivity(new Intent(this, LlamadaActivity.class));
     }
+
+    @OnClick(R.id.contact_btn)
+    public void onClickContact() { startActivity(new Intent(this, Contacts.class)); }
 
 
 }
