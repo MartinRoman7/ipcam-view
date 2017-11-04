@@ -172,6 +172,6 @@ public class RegistroFragment_2 extends Fragment {
                 .add(R.id.contenedor, new LoginFragment())
                 .commit();
     }
-    
+
 }
 

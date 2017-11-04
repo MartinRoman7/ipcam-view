@@ -43,14 +43,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Button csesion = (Button) findViewById(R.id.btn_csesion);
-        csesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                System.exit(0);
-            }
-        });
 
 /*
         ImageButton settings = (ImageButton) findViewById(R.id.setting_btn);
@@ -80,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         buttonSnapshot.setEnabled(false);
     }
 
+
+    @OnClick(R.id.btn_csesion)
+    public void onClickClose() { startActivity(new Intent(this, LoginActivity.class)); }
 
     @OnClick(R.id.buttonCamera1)
     public void onClickSnapshot() {
