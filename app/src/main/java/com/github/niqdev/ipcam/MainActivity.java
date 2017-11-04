@@ -102,4 +102,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.buttonHelp)
     public void onClickHelp() { startActivity(new Intent(this, AyudaActivity.class)); }
 
+    @OnClick(R.id.setting_btn)
+    public void onClickRegistro(){ startActivity(new Intent(this, RegistroActivity.class));}
+
 }

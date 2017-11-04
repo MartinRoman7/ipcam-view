@@ -3,6 +3,7 @@ package com.github.niqdev.ipcam.Fragments.login;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.github.niqdev.ipcam.LoginActivity;
+import com.github.niqdev.ipcam.MainActivity;
 import com.github.niqdev.ipcam.R;
 
 
@@ -170,7 +172,6 @@ public class RegistroFragment_2 extends Fragment {
                 .add(R.id.contenedor, new LoginFragment())
                 .commit();
     }
-
-
+    
 }
 
