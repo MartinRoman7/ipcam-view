@@ -1,13 +1,17 @@
 package com.github.niqdev.ipcam;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -18,91 +22,30 @@ import com.github.niqdev.mjpeg.OnFrameCapturedListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class IpCamSnapshotActivity_2 extends AppCompatActivity implements OnFrameCapturedListener {
-    private static final int TIMEOUT = 5;
+public class IpCamSnapshotActivity_2 extends AppCompatActivity {
 
-    private Bitmap lastPreview = null;
-
-    @BindView(R.id.mjpegViewSnapshot)
-    MjpegView mjpegView;
-
-    @BindView(R.id.imageView)
-    ImageView imageView;
+    private Button doVideoCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ipcam_snapshot);
-        ButterKnife.bind(this);
-        mjpegView.setOnFrameCapturedListener(this);
+        setContentView(R.layout.activity_videocall);
+
+        doVideoCall = (Button) findViewById(R.id.btn_videocall);
+        doVideoCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                videoCall();
+            }
+        });
     }
 
-    private String getPreference(String key) {
-        return PreferenceManager
-                .getDefaultSharedPreferences(this)
-                .getString(key, "");
+    private void videoCall() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://appr.tc/r/437814897"));
+        startActivity(browserIntent);
     }
 
-    private DisplayMode calculateDisplayMode() {
-        int orientation = getResources().getConfiguration().orientation;
-        return orientation == Configuration.ORIENTATION_LANDSCAPE ?
-                DisplayMode.FULLSCREEN : DisplayMode.BEST_FIT;
-    }
 
-    private void loadIpCam() {
-        Mjpeg.newInstance()
-                .open("http://192.168.1.125/camera2", TIMEOUT)
-                .subscribe(
-                        inputStream -> {
-                            mjpegView.setSource(inputStream);
-                            mjpegView.setDisplayMode(calculateDisplayMode());
-                            mjpegView.showFps(true);
-                        },
-                        throwable -> {
-                            Log.e(getClass().getSimpleName(), "mjpeg error", throwable);
-                            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
-                        });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadIpCam();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mjpegView.stopPlayback();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_capture:
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (lastPreview != null) {
-                            imageView.setImageBitmap(lastPreview);
-                        }
-                    }
-                });
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_capture, menu);
-        return true;
-    }
-
-    @Override
-    public void onFrameCaptured(Bitmap bitmap) {
-        lastPreview = bitmap;
-    }
 }

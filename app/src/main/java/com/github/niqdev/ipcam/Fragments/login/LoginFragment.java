@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -81,7 +82,6 @@ public class LoginFragment extends Fragment {
         }
     };
 
-
     private void iniciarSesion(){
         final String TAG = "MyFirebaseIIDService";
 
@@ -89,7 +89,7 @@ public class LoginFragment extends Fragment {
         String Password=password.getText().toString();
 
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        Log.d(TAG, "Refreshed token: " + refreshedToken);
+        Log.i(TAG, "Token: " + refreshedToken);
 
         if(! (Usuario.equals("") && Password.equals(""))) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
