@@ -4,6 +4,7 @@
     <string name="activity_ipcam_default">Default</string>
     <string name="activity_ipcam_two">Two Camera</string>
     <string name="activity_ipcam_snapshot">Cámara Interna</string>
+    <string name="activity_ipcam_snapshot_output">Cámara Externa</string>
     <string name="activity_ipcam_snapshot_2">Video Llamada</string>
     <string name="activity_llamada">Sistema</string>
     <string name="activity_contact">Contactos</string>

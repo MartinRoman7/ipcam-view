@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.buttonCamera2)
     Button buttonSnapshot_2;
 
-    @BindView(R.id.contact_btn)
-    ImageButton buttonContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, IpCamSnapshotActivity.class));
     }
 
+    @OnClick(R.id.buttonCameraOutput)
+    public void onClickSnapshot_Output() {
+        startActivity(new Intent(this, IpCamSnapshotActivityOutput.class));
+    }
+
     @OnClick(R.id.buttonCamera2)
     public void onClickSnapshot_2() {
         startActivity(new Intent(this, IpCamSnapshotActivity_2.class));
@@ -103,5 +106,12 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.setting_btn)
     public void onClickRegistro(){ startActivity(new Intent(this, RegistroActivity.class));}
+
+    @OnClick(R.id.btn_csesion)
+    public void onClickCSession(View v) {
+        finish();
+        System.exit(0);
+    }
+
 
 }

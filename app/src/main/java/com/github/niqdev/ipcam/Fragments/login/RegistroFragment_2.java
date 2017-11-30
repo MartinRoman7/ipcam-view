@@ -97,10 +97,13 @@ public class RegistroFragment_2 extends Fragment {
                             editor.putString(LoginActivity.PASSWORD, Password);
                             editor.apply();
 
-                            this.getFragmentManager()
+                            /*this.getFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.contenedor, new LoginFragment())
-                                    .commit();
+                                    .commit();*/
+                            Intent i = new Intent(getActivity(),MainActivity.class);
+                            startActivity(i);
+
                         } catch (Exception e) {
 
                         }
@@ -167,10 +170,12 @@ public class RegistroFragment_2 extends Fragment {
 
 
     private void finalizarApp(){
-        this.getFragmentManager()
+        /*this.getFragmentManager()
                 .beginTransaction()
                 .add(R.id.contenedor, new LoginFragment())
-                .commit();
+                .commit();*/
+        Intent i = new Intent(getActivity(),MainActivity.class);
+        startActivity(i);
     }
 
 }

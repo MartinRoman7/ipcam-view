@@ -16,39 +16,48 @@
 
                 <Button
                     android:id="@+id/buttonLlamada"
-                    android:layout_width="100dp"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:background="#009688"
                     android:textColor="#FFFFFF"
-                    android:text="Seguridad" />
+                    android:text="Sistema" />
 
                 <Button
                     android:id="@+id/buttonCamera1"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:background="#009688"
                     android:textColor="#FFFFFF"
-                    android:layout_marginStart="100dp"
-                    android:text="Cámara" />
+                    android:layout_marginStart="75dp"
+                    android:text="Cámara 1" />
+
+                <Button
+                    android:id="@+id/buttonCameraOutput"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="#009688"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="155dp"
+                    android:text="Cámara 2" />
 
                 <Button
                     android:id="@+id/buttonCamera2"
-                    android:layout_width="100dp"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:background="#009688"
                     android:textColor="#FFFFFF"
-                    android:layout_marginStart="200dp"
-                    android:text="llamada" />
+                    android:layout_marginStart="235dp"
+                    android:text="Llamada" />
 
 
 
                 <Button
                     android:id="@+id/buttonHelp"
-                    android:layout_width="100dp"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:background="#009688"
                     android:textColor="#FFFFFF"
-                    android:layout_marginStart="300dp"
+                    android:layout_marginStart="310dp"
                     android:text="Ayuda" />
 
                     <TextView
