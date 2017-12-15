@@ -13,7 +13,7 @@
         android:icon="@drawable/icon_1"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -34,7 +34,8 @@
         <activity
             android:name=".IpCamSnapshotActivity"
             android:label="@string/activity_ipcam_snapshot"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.github.niqdev.ipcam.MainActivity" />
@@ -43,7 +44,8 @@
         <activity
             android:name=".IpCamSnapshotActivityOutput"
             android:label="@string/activity_ipcam_snapshot_output"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.github.niqdev.ipcam.MainActivity" />

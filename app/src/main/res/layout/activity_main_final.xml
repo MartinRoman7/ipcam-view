@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/final_main"
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+        android:id="@android:id/tabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <TextView
+        android:id="@+id/tx_username1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#F7F6F6"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonLlamada"
+        android:layout_width="135dp"
+        android:layout_height="115dp"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
+        android:textColor="#F7F6F6" />
+
+    <Button
+        android:id="@+id/buttonCamera1"
+        android:layout_width="135dp"
+        android:layout_height="115dp"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="200dp"
+        android:textColor="#F7F6F6" />
+
+    <Button
+        android:id="@+id/buttonCameraOutput"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="205dp"
+        android:layout_marginStart="30dp"
+        android:textColor="#F7F6F6" />
+
+    <Button
+        android:id="@+id/buttonCamera2"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="205dp"
+        android:layout_marginStart="200dp"
+        android:textColor="#F7F6F6" />
+
+    <Button
+        android:id="@+id/contact_btn"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginStart="30dp"
+        android:background="@android:color/transparent"
+        android:textColor="#F7F6F6"/>
+
+    <Button
+        android:id="@+id/setting_btn"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginStart="200dp"
+        android:background="@android:color/transparent"
+        android:textColor="#F7F6F6"/>
+
+    <Button
+        android:id="@+id/buttonHelp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="17dp"
+        android:background="@android:color/transparent"
+        android:textColor="#F7F6F6" />
+
+    <Button
+        android:id="@+id/btn_csesion"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="295dp"
+        android:background="@android:color/transparent"
+        android:textColor="#FFFFFF" />
+
+
+</RelativeLayout>

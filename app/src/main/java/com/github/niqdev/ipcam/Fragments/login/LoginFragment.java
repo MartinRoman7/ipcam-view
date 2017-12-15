@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,6 +23,8 @@ import com.github.niqdev.ipcam.LoginActivity;
 import com.github.niqdev.ipcam.MainActivity;
 import com.github.niqdev.ipcam.R;
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import android.view.Window;
 
 
 /**
@@ -41,7 +44,7 @@ public class LoginFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
 
         if(container!=null){
-            View rootView = inflater.inflate(R.layout.login_content_layout,container,false);
+            View rootView = inflater.inflate(R.layout.login_content_final,container,false);
 
             usuario = (EditText)rootView.findViewById(R.id.Usuario_login);
             password = (EditText)rootView.findViewById(R.id.password_login);
@@ -67,6 +70,7 @@ public class LoginFragment extends Fragment {
         }
         return null;
     }
+
 
 
     private View.OnClickListener accept = new View.OnClickListener() {

@@ -2,6 +2,7 @@ package com.github.niqdev.ipcam;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 import com.github.niqdev.ipcam.Fragments.login.LoginFragment;
 
@@ -17,7 +18,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.main_content_layout);
 
         this.getFragmentManager()
