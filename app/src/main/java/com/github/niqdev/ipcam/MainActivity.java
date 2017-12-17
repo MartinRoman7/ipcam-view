@@ -104,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, IpCamSnapshotActivity_2.class));
     }
 
-    @OnClick(R.id.buttonLlamada)
+    @OnClick(R.id.buttonSistema)
     public void onClickLlamada() {
-        startActivity(new Intent(this, LlamadaActivity.class));
+        startActivity(new Intent(this, SistemaActivity.class));
     }
 
     @OnClick(R.id.contact_btn)

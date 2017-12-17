@@ -1,46 +1,28 @@
 package com.github.niqdev.ipcam;
 
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.github.niqdev.mjpeg.DisplayMode;
 import com.github.niqdev.mjpeg.Mjpeg;
-import com.github.niqdev.mjpeg.MjpegView;
-import com.github.niqdev.mjpeg.OnFrameCapturedListener;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
-public class LlamadaActivity extends AppCompatActivity{
+public class SistemaActivity extends AppCompatActivity{
 
     private static final int TIMEOUT = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_llamada);
+        setContentView(R.layout.activity_sistema);
+
+        TextView control =(TextView)findViewById(R.id.tx_username2);
+        control.setText("Control de cerradura");
 
         ImageButton cerraduraU = (ImageButton) findViewById(R.id.cerraduraU_btn);
         ImageButton cerraduraL = (ImageButton) findViewById(R.id.cerraduraL_btn);
@@ -48,7 +30,7 @@ public class LlamadaActivity extends AppCompatActivity{
         ImageButton openDoor = (ImageButton) findViewById(R.id.opendoor_btn);
         ImageButton closeDoor = (ImageButton) findViewById(R.id.closedoor_btn);
 
-
+        openDoor.setVisibility(View.INVISIBLE);
 
         SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();
@@ -56,6 +38,9 @@ public class LlamadaActivity extends AppCompatActivity{
         cerraduraU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                control.setText("Control de cerradura");
 
                 Mjpeg.newInstance()
                         .open("http://192.168.1.125:1880/activation/false", TIMEOUT).subscribe();
@@ -77,6 +62,8 @@ public class LlamadaActivity extends AppCompatActivity{
                 Mjpeg.newInstance()
                         .open("http://192.168.1.125:1880/activation/true", TIMEOUT).subscribe();
 
+                control.setText("");
+
                 cerraduraL.setVisibility(View.INVISIBLE);
                 cerraduraU.setVisibility(View.VISIBLE);
 
@@ -97,6 +84,8 @@ public class LlamadaActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Mjpeg.newInstance()
                         .open("http://192.168.1.125:1880/cerradura/1", TIMEOUT).subscribe();
+
+                control.setText("Control de cerradura");
 
                 closeDoor.setVisibility(View.INVISIBLE);
                 openDoor.setVisibility(View.VISIBLE);

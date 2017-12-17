@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Home Security</string>
+    <string name="app_name">Alertame</string>
 
     <string name="activity_ipcam_default">Default</string>
     <string name="activity_ipcam_two">Two Camera</string>

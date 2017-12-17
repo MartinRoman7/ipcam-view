@@ -14,7 +14,6 @@
         android:layout_marginEnd="75dp"
         android:textColor="#F7F6F6"
         android:hint="Usuario"
-        android:textColorHint="#F7F6F6"
         android:ems="10"
         android:textSize="16dp"
         android:inputType="textPersonName"/>
@@ -30,7 +29,6 @@
         android:ems="10"
         android:textColor="#F7F6F6"
         android:hint="Contraseña"
-        android:textColorHint="#F7F6F6"
         android:textSize="16dp"
         android:inputType="textPassword" />
 
@@ -41,9 +39,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="46dp"
         android:layout_below="@+id/password_login"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="65dp"
         android:background="@drawable/btn_login"
-        android:textColor="#FFFFFF"
+        android:textColor="#F7F6F6"
         android:text="Aceptar" />
 
     <Button
@@ -52,7 +50,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="48dp"
         android:layout_below="@+id/password_login"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="65dp"
         android:background="@drawable/btn_registry"
         android:textColor="#FFFFFF"
         android:text="Registro" />

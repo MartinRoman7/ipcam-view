@@ -35,12 +35,10 @@ public class Contacts extends AppCompatActivity{
 
         listContacts = (TextView) findViewById(R.id.listContacts);
         loadContacts = (Button) findViewById(R.id.loadContacts);
-        loadContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadContacts();
-            }
-        });
+
+        loadContacts();
+
+
     }
 
     private void loadContacts() {

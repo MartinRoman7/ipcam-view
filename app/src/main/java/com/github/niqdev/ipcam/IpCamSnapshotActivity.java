@@ -70,6 +70,7 @@ public class IpCamSnapshotActivity extends AppCompatActivity implements OnFrameC
                 });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
