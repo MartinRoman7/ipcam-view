@@ -2,6 +2,7 @@ package com.github.niqdev.ipcam;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -21,6 +22,7 @@ import android.Manifest;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by ctin on 03/11/17.
@@ -28,15 +30,21 @@ import butterknife.ButterKnife;
 
 public class Contacts extends AppCompatActivity {
 
+    public static final String Contact = "contact";
+
     private Button call911;
     private Button callCruz;
     private Button callBomberos;
+    private Button callContact;
+    private  Button addContact;
     private TextView listContacts;
 
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
     private static final int PERMISSIONS_REQUEST_CALL_PHONE_911 = 1;
     private static final int PERMISSIONS_REQUEST_CALL_PHONE_CRUZ = 1;
     private static final int PERMISSIONS_REQUEST_CALL_PHONE_BOMBEROS = 1;
+    private static final int PERMISSIONS_REQUEST_CALL_PHONE_CONTACT = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +55,21 @@ public class Contacts extends AppCompatActivity {
         call911 = (Button) findViewById(R.id.makeCall);
         callCruz =(Button)findViewById(R.id.Cruz);
         callBomberos = (Button)findViewById(R.id.Bomberos);
+        callContact = (Button)findViewById(R.id.ContactosConfianza);
+        addContact = (Button)findViewById(R.id.addContactosConfianza);
 
         loadContacts();
+
+        SharedPreferences prefs = getSharedPreferences(Contact, MODE_PRIVATE);
+        String name = prefs.getString("name_contact","");
+
+        //Log.i("Nombre: ",name);
+
+        callContact.setText(name);
 
         call911.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 makeCall911();
             }
         });
@@ -61,7 +77,6 @@ public class Contacts extends AppCompatActivity {
         callCruz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 makeCallCruz();
             }
         });
@@ -69,10 +84,24 @@ public class Contacts extends AppCompatActivity {
         callBomberos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 makeCallBomberos();
             }
         });
+
+        callContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeCallContact();
+            }
+        });
+
+        addContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Contacts.this,AddContactActivity.class));
+            }
+        });
+
     }
 
     private void makeCall911() {
@@ -143,6 +172,34 @@ public class Contacts extends AppCompatActivity {
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
             requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, PERMISSIONS_REQUEST_CALL_PHONE_BOMBEROS);
+            Log.i(TAG,"IF ");
+            return;
+        }
+        Log.i(TAG,"OUT ");
+        startActivity(callIntent);
+    }
+
+    private void makeCallContact() {
+
+        SharedPreferences prefs = getSharedPreferences(Contact, MODE_PRIVATE);
+        String numero = prefs.getString("number_contact","");
+
+        final String TAG = "Call";
+
+        Log.i(TAG,"CALL");
+
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:"+numero));
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, PERMISSIONS_REQUEST_CALL_PHONE_911);
             Log.i(TAG,"IF ");
             return;
         }
@@ -230,7 +287,6 @@ public class Contacts extends AppCompatActivity {
             }
         }
     }
-
 
 
 

@@ -91,6 +91,17 @@
 
         </activity>
 
+        <activity
+            android:name=".AddContactActivity"
+            android:label="@string/activity_add_contact"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.github.niqdev.ipcam.MainActivity" />
+
+        </activity>
+
+
         <service
             android:name=".PushNotification">
             <intent-filter>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/final_fondo"
     tools:context="com.github.niqdev.ipcam.IpCamSnapshotActivity">
 
     <RelativeLayout
@@ -17,6 +16,7 @@
             android:id="@+id/mjpegViewSnapshot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             stream:type="stream_default" />
 
         <ImageView

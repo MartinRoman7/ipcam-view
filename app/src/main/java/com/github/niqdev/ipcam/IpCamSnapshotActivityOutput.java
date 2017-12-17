@@ -37,7 +37,6 @@ public class IpCamSnapshotActivityOutput extends AppCompatActivity implements On
         setContentView(R.layout.activity_ipcam_snapshot);
         ButterKnife.bind(this);
         mjpegView.setOnFrameCapturedListener(this);
-        mjpegView.setTransparentBackground();
     }
 
     private String getPreference(String key) {

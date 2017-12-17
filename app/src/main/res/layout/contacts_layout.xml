@@ -36,6 +36,24 @@
         android:textColor="#F7F6F6"
         android:text="Bomberos" />
 
+    <Button
+        android:id="@+id/ContactosConfianza"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_call"
+        android:textColor="#F7F6F6" />
+
+    <Button
+        android:id="@+id/addContactosConfianza"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_call"
+        android:textColor="#F7F6F6" />
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
