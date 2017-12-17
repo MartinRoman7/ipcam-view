@@ -1,13 +1,18 @@
 package com.github.niqdev.ipcam;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.StringBuilderPrinter;
 import android.view.View;
 import android.widget.Button;
@@ -21,24 +26,128 @@ import butterknife.ButterKnife;
  * Created by ctin on 03/11/17.
  */
 
-public class Contacts extends AppCompatActivity{
+public class Contacts extends AppCompatActivity {
 
-    private Button loadContacts;
+    private Button call911;
+    private Button callCruz;
+    private Button callBomberos;
     private TextView listContacts;
 
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
+    private static final int PERMISSIONS_REQUEST_CALL_PHONE_911 = 1;
+    private static final int PERMISSIONS_REQUEST_CALL_PHONE_CRUZ = 1;
+    private static final int PERMISSIONS_REQUEST_CALL_PHONE_BOMBEROS = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contacts_layout);
 
         listContacts = (TextView) findViewById(R.id.listContacts);
-        loadContacts = (Button) findViewById(R.id.loadContacts);
+        call911 = (Button) findViewById(R.id.makeCall);
+        callCruz =(Button)findViewById(R.id.Cruz);
+        callBomberos = (Button)findViewById(R.id.Bomberos);
 
         loadContacts();
 
+        call911.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                makeCall911();
+            }
+        });
+
+        callCruz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                makeCallCruz();
+            }
+        });
+
+        callBomberos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                makeCallBomberos();
+            }
+        });
+    }
+
+    private void makeCall911() {
+
+        final String TAG = "Call";
+
+        Log.i(TAG,"CALL");
+
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:5511431791"));
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, PERMISSIONS_REQUEST_CALL_PHONE_911);
+            Log.i(TAG,"IF ");
+            return;
+        }
+        Log.i(TAG,"OUT ");
+        startActivity(callIntent);
+    }
+
+    private void makeCallCruz() {
+
+        final String TAG = "Call";
+
+        Log.i(TAG,"CALL");
+
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:5511431791"));
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, PERMISSIONS_REQUEST_CALL_PHONE_CRUZ);
+            Log.i(TAG,"IF ");
+            return;
+        }
+        Log.i(TAG,"OUT ");
+        startActivity(callIntent);
+    }
+
+    private void makeCallBomberos() {
+
+        final String TAG = "Call";
+
+        Log.i(TAG,"CALL");
+
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:5511431791"));
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, PERMISSIONS_REQUEST_CALL_PHONE_BOMBEROS);
+            Log.i(TAG,"IF ");
+            return;
+        }
+        Log.i(TAG,"OUT ");
+        startActivity(callIntent);
     }
 
     private void loadContacts() {
@@ -93,7 +202,36 @@ public class Contacts extends AppCompatActivity{
                 Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
             }
         }
+
+        if (requestCode == PERMISSIONS_REQUEST_CALL_PHONE_911) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission is granted
+                makeCall911();
+            } else {
+                Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        if (requestCode == PERMISSIONS_REQUEST_CALL_PHONE_CRUZ) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission is granted
+                makeCallCruz();
+            } else {
+                Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        if (requestCode == PERMISSIONS_REQUEST_CALL_PHONE_BOMBEROS) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission is granted
+                makeCallBomberos();
+            } else {
+                Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
+
+
 
 
 }

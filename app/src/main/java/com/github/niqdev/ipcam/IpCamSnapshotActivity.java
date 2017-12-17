@@ -57,7 +57,7 @@ public class IpCamSnapshotActivity extends AppCompatActivity implements OnFrameC
 
     private void loadIpCam() {
         Mjpeg.newInstance()
-            .open("http://192.168.1.70/camera1", TIMEOUT)
+            .open("http://192.168.1.125/camera2", TIMEOUT)
             .subscribe(
                 inputStream -> {
                     mjpegView.setSource(inputStream);

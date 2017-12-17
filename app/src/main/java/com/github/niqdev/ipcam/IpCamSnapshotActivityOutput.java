@@ -37,6 +37,7 @@ public class IpCamSnapshotActivityOutput extends AppCompatActivity implements On
         setContentView(R.layout.activity_ipcam_snapshot);
         ButterKnife.bind(this);
         mjpegView.setOnFrameCapturedListener(this);
+        mjpegView.setTransparentBackground();
     }
 
     private String getPreference(String key) {
@@ -53,7 +54,7 @@ public class IpCamSnapshotActivityOutput extends AppCompatActivity implements On
 
     private void loadIpCam() {
         Mjpeg.newInstance()
-            .open("http://192.168.1.70/camera2", TIMEOUT)
+            .open("http://192.168.1.125/camera1", TIMEOUT)
             .subscribe(
                 inputStream -> {
                     mjpegView.setSource(inputStream);
